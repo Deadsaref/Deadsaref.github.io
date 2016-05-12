@@ -58,6 +58,14 @@ h3 {
     background: #ee3643;
     border-bottom: 6px solid #b52933;
 }
+.page-logo:hover, .footer-logo:hover {
+    background-color: #ca2c37;
+    border-color: #9a212a;
+}
+.page-logo:active, .footer-logo:active {
+    background-color: #ba2732;
+    border-color: #8e1e26;
+}
 .search input{
     float: left;
     width: 171px;
@@ -319,44 +327,58 @@ main .center-container{
 .btn-delivery {
     background-color: #dda028;
 }
-.slider {
+.sliderBox {
     position: relative;
     float: left;
     width: 620px;
     height: 266px;    
+    overflow: hidden;
 }
-.slider img {
-    position: absolute;
+.sliderBox .images{
+    width: calc(620px * 2);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.sliderBox img {
+    display: inline-block;
 }
 .slide-btn-left {
-    display: block;
+    display: inline-block;
     position: absolute;
     width: 22px;
     height: 40px;
     top: 114px;
     left: 25px;
     background: url(../img/spritesheet.png) no-repeat -20px -621px;    
-    cursor: pointer;
+    opacity: 0.6;
 }
 .slide-btn-right {
-    display: block;
+    display: inline-block;
     position: absolute;
     width: 22px;
     height: 40px;
     top: 114px;
     right: 25px;
     background: url(../img/spritesheet.png) no-repeat -20px -988px; 
-    cursor: pointer;
+    opacity: 0.6;
 }
-.slider .indicators {
+.sliderBox .slide {
     position: absolute;
-    height: 10px;
-    min-width: 10px;
-    bottom: 36px;
-    left: 294px;
+    top: -110px;
+}
+.sliderBox .slide:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+.sliderBox .controls {
+    position: absolute;
+    width: 620px;
+    bottom: 0px;       
+    padding-bottom: 25px;
     text-align: center;
 }
-.slider .indicator-item {
+.sliderBox .point {
     display: inline-block;
     position: relative;
     width: 10px;
@@ -365,14 +387,16 @@ main .center-container{
     border-radius: 100%;
     background-color: #fff;
 }
-/*
-.slider .indicator-item[active]:after {
+.point.active:after {
+    content: "";
     position: absolute;
-    width: 8px;
-    height: 8px;
+    top:2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
     background-color: #ee3643;
 }
-*/
 .btn {
     display: inline-block;
     padding: 10px 50px;
@@ -390,7 +414,7 @@ main .center-container{
 .btn:active {
     background: #ba2732;
 }
-.slider>.btn {
+.sliderBox>.btn {
     position: absolute;
     top: 206px;
     left: 24px;
@@ -421,14 +445,14 @@ main .center-container{
 }
 .product-item {
     display: inline-block;
+    vertical-align: top;
     position: relative;
     width: 180px;
     height: 267px;
     margin-bottom: 20px;
     margin-right: 20px;
-    padding: 30px 19px 20px;
-    border: 1px solid #e5e5e5;
-    vertical-align: top;
+    padding: 30px 18px 20px;
+    border: 1px solid #e5e5e5;    
     text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
@@ -501,7 +525,10 @@ main .center-container{
 }
 .product-container {
     position: relative;
-    
+    width: 700px;
+}
+.popular-container {
+    max-width: 940px;
 }
 .popular-container article:nth-child(4n), .product-container article:nth-child(3n) {
     margin-right: 0px;
@@ -547,7 +574,7 @@ main .center-container{
     width:218px;
     height:88px;
     padding:40px 0;
-    background-color:rgba(255,255,255,0.9);
+    background-color:rgba(255,255,255,1);
     z-index:1;
     display:none;
 }
@@ -655,12 +682,12 @@ main .center-container{
      background: url("../img/service%20delivery.png") no-repeat 150px 20px;
 }
 .guarantee {
-    background: url("../img/service%20guarantee.png") no-repeat 150px 20px;
+    background: url("../img/service%20guarantee.png") no-repeat 220px 0;
 }
 .credit {
     background: url("../img/service%20credit.png") no-repeat 150px 0;
 }
-div[active] {
+.service-description .active {
   display: block;
   color: #32425c;
   border: none;
@@ -669,7 +696,7 @@ div[active] {
   cursor:pointer;
   background-color: #293449;
 }
-#menu li[active]  {
+#menu li.active  {
     color: #32425c;
     background-color: #fff;
     border: none;
@@ -710,16 +737,40 @@ div[active] {
     margin-top: 30px;
     padding: 10px 63px;
 }
-.write-us {
-    position: absolute;
+.map {
+    position: fixed;
     display: none;
-    top:186px;
-    left: 170px;
+    top: 50%;
+    left: 50%;
+    margin-left: -470px;
+    margin-top: -222px;
+    width: 940px;
+    height: 445px;
+    box-shadow: 0 0 50px gray;
+}
+.map-popup-show {
+    display: block;
+}
+/*Вынес кнопку за контейнер из-за особенностей гугл-карты*/
+.map .form-close {
+    right: -30px;
+    top: 0;
+}
+.write-us {
+    position: fixed;
+    display: none;
+    top:50%;
+    left: 50%;
+    margin-left: -310px;
+    margin-top: -300px;
     width: 460px;
     padding: 45px 80px 38px;
     border-top: 10px solid #ee3643;
     background-color: #fff;
     box-shadow: 0 0 50px gray;
+}
+.write-us-show {
+    display: block;
 }
 .write-us label {
     display: inline-block; 
@@ -1150,16 +1201,21 @@ input[type="radio"]:checked + label::after {
     background-color: #fff;
 }
 .card-add {
-    position: absolute;
+    position: fixed;
     display: none;
+    top: 50%;
+    left: 50%;
+    margin-top: -140px;
+    margin-left: -310px;
     width: 620px;
     height: 275px;
-    top: -138px;
-    left: -80px;
     border-top: 10px solid #ee3643;
     box-shadow: 0 0 50px gray;
     background-color: #fff;
     z-index: 2;
+}
+.card-show {
+    display: block;
 }
 .card-add .message {
     position: relative;
@@ -1194,6 +1250,7 @@ input[type="radio"]:checked + label::after {
     top: 9px;
     right: 9px;
     background: url(../img/spritesheet.png) no-repeat -20px -1562px;
+    cursor: pointer;
 }
 .sorting span {
   margin-right: 100px;
