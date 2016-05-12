@@ -387,6 +387,9 @@ main .center-container{
     border-radius: 100%;
     background-color: #fff;
 }
+.point:hover {
+    cursor: pointer;
+}
 .point.active:after {
     content: "";
     position: absolute;
