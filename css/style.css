@@ -1269,7 +1269,7 @@ input[type="radio"]:checked + label::after {
   color: #000;
   border-bottom: 1px solid #ee3643;
 }
-.sorting-name[active] {
+.sorting-name.active {
   display: inline-block;
   color: #ee3643;
   border: none;
@@ -1284,7 +1284,7 @@ a.arrow-up {
 a.arrow-up:hover {
   background-position: -20px -1396px;;
 }
-a.arrow-up[active] {
+a.arrow-up.active {
   background-position: -20px -1346px;
 }
 a.arrow-down{
@@ -1296,7 +1296,7 @@ a.arrow-down{
 a.arrow-down:hover {
   background-position: -20px -519px;
 }
-a.arrow-down[active] {
+a.arrow-down.active {
   background-position: -20px -419px;
 }
 .pagination {
