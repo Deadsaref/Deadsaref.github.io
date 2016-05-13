@@ -68,7 +68,9 @@ h3 {
 }
 .search input{
     float: left;
-    width: 171px;
+    width: 267px;
+    height: 40px;
+    box-sizing: border-box;
     padding: 11px 48px;
     font-family: inherit;
     font-size: 17px;
@@ -125,6 +127,9 @@ h3 {
 }
 .header-section:active {
     background-color: #161d29;
+}
+.header-section.active {
+    background-color: #ee3643;
 }
 .order {
     width: 150px;
@@ -219,7 +224,7 @@ h3 {
 }
 .navigation-item {
     display: inline-block;
-    padding: 19px 30px;
+    padding: 19px 29.8px;
     font-size: 17px;
     line-height: 17px;
     text-decoration: none;
@@ -756,8 +761,8 @@ main .center-container{
 }
 /*Вынес кнопку за контейнер из-за особенностей гугл-карты*/
 .map .form-close {
-    right: -30px;
-    top: 0;
+    top: -30px;
+    right: 0;
 }
 .write-us {
     position: fixed;
@@ -1031,7 +1036,7 @@ main .center-container{
   width: 40px;
   height: 18px;
   vertical-align: middle;
-  background: url(../img/.icon-right-small.png) no-repeat 10px;
+  background: url(../img/spritesheet.png) no-repeat 15px -1768px;;
 }
 .breadcrumbs .home {
   width: 20px;
@@ -1233,18 +1238,17 @@ input[type="radio"]:checked + label::after {
     background-color: #f1f1f1;
 }
 .buttons a {
+    display: inline-block;
     width: 220px;
     box-sizing: border-box;
     text-align: center;
     padding: 10px 0;
     margin-right: 20px;
 }
-.buttons a:last-child {
-    margin-right: 0;
-}
 .card-add .continue {
     background-color: #fff;
     color: #000;
+    margin-right: 0;
 }
 .form-close {
     position: absolute;
