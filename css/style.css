@@ -415,6 +415,7 @@ main .center-container{
     text-transform: uppercase;
     background: #ee3643;
     border-radius: 3px;
+    text-align: center;
 }
 .btn:hover {
     background: #ca2c37;
@@ -459,7 +460,7 @@ main .center-container{
     height: 267px;
     margin-bottom: 20px;
     margin-right: 20px;
-    padding: 30px 18px 20px;
+    padding: 30px 19px 20px;
     border: 1px solid #e5e5e5;    
     text-align: center;
     font-family: 'PT Sans', sans-serif;
@@ -605,7 +606,7 @@ main .center-container{
 }
 .action-btn.buy {
     color: #fff;
-    background: #63a63e url("../img/sprite.png") no-repeat 12px -214px;
+    background: #63a63e url("../img/spritesheet.png") no-repeat -10px -13px;
 }
 .action-btn.buy:hover {
     border-color: #5fbb2d;
@@ -630,7 +631,7 @@ main .center-container{
 .service-container {
     margin-top: 60px;
     padding-top: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 45px;
     background: #f2f6f8;
     margin-bottom: 20px;
 }
@@ -758,11 +759,17 @@ main .center-container{
 }
 .map-popup-show {
     display: block;
+    animation: downslide 0.7s;
 }
 /*Вынес кнопку за контейнер из-за особенностей гугл-карты*/
 .map .form-close {
     top: -30px;
     right: 0;
+}
+.right-column .btn-write {
+    width: 100%;
+    padding: 10px 60px;
+    box-sizing: border-box;
 }
 .write-us {
     position: fixed;
@@ -779,6 +786,7 @@ main .center-container{
 }
 .write-us-show {
     display: block;
+    animation: downslide 0.7s;
 }
 .write-us label {
     display: inline-block; 
@@ -812,7 +820,20 @@ main .center-container{
 .write-us .btn {
     margin-top: 75px;
     width: 100%;
-    border: none;
+    border: none;    
+}
+@keyframes downslide {
+    0% {transform: translateY(-2000px);}    
+    80% {transform: translateY(-10px);}
+    100% {transform: translateY(0);}
+}
+@keyframes shake {
+    0%,100% {transform: translateX(0);}
+    10%,50%,90% {transform: translateX(-10px);}
+    30%,70% {transform: translateX(10px);}
+}
+.error {
+    animation: shake 0.4s;
 }
 .first-footer {
     background-color: #32425c;
@@ -858,7 +879,7 @@ main .center-container{
 .footer-nav li {
     display: inline-block;
     margin-top: 35px;
-    margin-right: 55px;
+    margin-right: 54px;
 }
 .footer-nav a {
     text-decoration: none;
